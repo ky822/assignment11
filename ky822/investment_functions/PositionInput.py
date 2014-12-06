@@ -14,6 +14,8 @@ def PositionInput():
         
         try:
             positions = raw_input('Please input a list of the number of shares to buy in parellel: e.g. [1, 10, 100, 1000]\n' )
+            
+            #Check if the input of positions is invalid.
             positions_list = ExaminePosition(positions)         
             break
         
@@ -33,19 +35,19 @@ def ExaminePosition(positions):
     This function is to check if the positions is in a valid format and a valid value. 
     """
     try:
-        #remove the leading and trailing whitespaces.
+        #Remove the leading and trailing whitespaces.
         positions = positions.strip()
         positions_list = []
-            
+        
+        #Exception handling    
         if positions[0]!='[' or positions[-1]!=']':
             raise InvalidFormat()
             
         positions = positions[1:-1].split(',')
-        for position in positions:
-                
+        
+        for position in positions:     
             if all(int(position) != p for p in (1, 10, 100, 1000)):
-                raise InvalidPosition()
-                
+                raise InvalidPosition()             
             else:
                 position = int(position)
                 positions_list.append(position)

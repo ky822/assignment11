@@ -17,6 +17,8 @@ def Set_num_trials():
     while True: 
         try:
             num_trials = eval(raw_input('Please input the number of simulating days: \n'))
+            
+            #Exception handling
             if type(num_trials) != int or num_trials <= 0:
                 raise InvalidTrialNum() 
             elif type(num_trials) == int and num_trials > 0:

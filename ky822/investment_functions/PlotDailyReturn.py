@@ -11,6 +11,7 @@ def PlotDailyReturn(position,daily_ret):
     with that result for each position.
     """
     plt.figure()
+    #Plot the result of the trials in a histogram with X axis from -1.0 to +1.0 and Y axis as the number of trials.
     plt.hist(daily_ret,100,range=[-1,1])
     plt.xlabel('Daily return')
     plt.ylabel('The number of trials')
